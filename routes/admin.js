@@ -1,5 +1,9 @@
 var express = require("express");
 const cors = require('cors');
+const app = express();
+
+app.use(cors()); // CORS Allow सर्वांसाठी
+app.use(express.json()); // JSON Data Handle करायला
 var exe = require("./../connection");
 var router = express.Router();
 

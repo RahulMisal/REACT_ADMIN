@@ -1,0 +1,31 @@
+<%-include("navbar.ejs")%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Why Choose Us</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card shadow-lg p-4">
+            <h3 class="text-center mb-4 alert alert-primary">Why Choose Us</h3>
+            <form action="/admin/save_info" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Enter Title</label>
+                    <input type="text" name="title" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Select Image</label>
+                    <input type="file"  name="icon" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mt-3">Save</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<%-include("footer.ejs")%>

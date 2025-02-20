@@ -1,0 +1,33 @@
+<%-include("navbar.ejs")%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Update Article</title>
+</head>
+<body>
+    <div class="container mt-3">
+        <div class="card shadow-lg p-4">
+            <h3 class="text-center mb-4 alert alert-primary">Update Article</h3>
+            <form action="/admin/update_article" method="post" enctype="multipart/form-data">
+                <div class="mb-0">
+                    <input type="hidden" name="article_id" class="form-control" value="<%-info.article_id%>">
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Select Image</label>
+                    <input type="file"  name="photo" class="form-control" value="<%-info.photo%>">
+                </div>
+                <div class="mb-3">
+                    <img src="/uploads/<%-info.photo%>" height="100px" width="100px">
+               </div>
+                <button type="submit" class="btn btn-primary w-100 mt-3">Update</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<%-include("footer.ejs")%>

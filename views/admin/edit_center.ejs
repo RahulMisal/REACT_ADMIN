@@ -1,0 +1,42 @@
+<%-include("navbar.ejs")%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Update Center</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card shadow-lg p-4">
+            <h3 class="text-center mb-4 alert alert-primary">Update Center</h3>
+            <form action="/admin/update_center" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <input type="hidden" name="center_id" class="form-control" value="<%-info.center_id%>">
+                </div>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Area Name</label>
+                    <input type="text" name="area_name" class="form-control" value="<%-info.area_name%>">
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea name="address" class="form-control" rows="4"><%-info.address%></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="mobile" class="form-label">Mobile</label>
+                    <input type="number"  name="mobile" class="form-control" value="<%-info.mobile%>">
+                </div>
+                <div class="mb-3">
+                    <label for="type" class="form-label">Link</label>
+                    <input type="link"  name="link" class="form-control" value="<%-info.link%>">
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mt-3">Update</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<%-include("footer.ejs")%>

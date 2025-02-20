@@ -1,0 +1,39 @@
+<%-include("navbar.ejs")%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Center</title> 
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card shadow-lg p-4">
+            <h3 class="text-center mb-4 alert alert-primary">Add Center</h3>
+            <form action="/admin/save_center" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Enter Area Name</label>
+                    <input type="text" name="area_name" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Enter Address</label>
+                    <textarea name="address" class="form-control" rows="4" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="mobile" class="form-label">Enter Mobile</label>
+                    <input type="number"  name="mobile" class="form-control" required>
+                </div>
+                <div class="mb-3">
+                    <label for="link" class="form-label">Enter Google Map Link</label>
+                    <input type="link"  name="link" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mt-3">Save</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<%-include("footer.ejs")%>

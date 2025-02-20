@@ -1,0 +1,51 @@
+<%-include("navbar.ejs")%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact</title> 
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card shadow-lg p-4">
+            <h3 class="text-center mb-4 alert alert-primary">Update Contact</h3>
+            <form action="/admin/save_contact" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control" required value="<%-info.email%>">
+                </div>
+                <div class="mb-3">
+                    <label for="mobile" class="form-label">Mobile</label>
+                    <input  type="number" name="mobile" class="form-control" required value="<%-info.mobile%>">
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea name="address" class="form-control" rows="4" required><%-info.address%></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="link" class="form-label">Instagram Link</label>
+                    <input type="link"  name="i_link" class="form-control" required value="<%-info.i_link%>">
+                </div>
+                <div class="mb-3">
+                    <label for="link" class="form-label">Youtube Link</label>
+                    <input type="link"  name="y_link" class="form-control" required value="<%-info.y_link%>">
+                </div>
+                <div class="mb-3">
+                    <label for="link" class="form-label">Facebook Link</label>
+                    <input type="link"  name="f_link" class="form-control" required value="<%-info.f_link%>">
+                </div>
+                <div class="mb-3">
+                    <label for="link" class="form-label">Twitter Link</label>
+                    <input type="link"  name="t_link" class="form-control" required value="<%-info.t_link%>">
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mt-3">Update</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<%-include("footer.ejs")%>

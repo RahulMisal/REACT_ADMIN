@@ -1,0 +1,63 @@
+<%-include("navbar.ejs")%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Center List</title>
+</head>
+<body>
+
+<div class="container-fluid mt-4">
+    <h3 class="text-center mb-3 alert alert-primary">Center List</h3>
+    
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover text-center align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Action</th>
+                    <th>SR.NO</th>
+                    <th>Area Name</th>
+                    <th>Address</th>
+                    <th>Mobile</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (Array.isArray(center) && center.length > 0) { %>
+                    <% center.map((row, i) => { %>
+                        <tr>
+                            <td style="white-space: nowrap;">
+                                <a href="/admin/edit_center/<%- row.center_id %>" class="btn btn-sm btn-warning mx-1">
+                                    ✏️
+                                </a>
+                                <a href="/admin/delete_center/<%- row.center_id %>" class="btn btn-sm btn-danger" onclick="return confirm('Are You Sure....?')">
+                                    ❌
+                                </a>
+                            </td>
+                            <td><%- i + 1 %></td>
+                            <td><%- row.area_name %></td>
+                            <td><%- row.address %></td>
+                            <td><%- row.mobile %></td>
+                            <td>
+                                <a href="<%- row.link %>" target="_blank" class="btn btn-primary btn-sm">
+                                    Open Map
+                                </a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="6" class="text-center text-muted">No records found</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
+
+
+<%-include("footer.ejs")%>

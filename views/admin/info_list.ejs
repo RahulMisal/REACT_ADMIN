@@ -1,0 +1,57 @@
+<%-include("navbar.ejs")%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Whychoose us</title>
+</head>
+<body>
+
+<div class="container-fluid mt-4">
+    <h3 class="text-center mb-3 alert alert-primary">Whychoose Info List</h3>
+    
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover text-center align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Action</th>
+                    <th>SR.NO</th>
+                    <th>Title</th>
+                    <th>Photo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (Array.isArray(whychoose) && whychoose.length > 0) { %>
+                    <% whychoose.map((row, i) => { %>
+                        <tr>
+                            <td style="white-space: nowrap;">
+                                <a href="/admin/edit_whychoose_info/<%- row.whychoose_id %>" class="btn btn-sm btn-warning mx-1">
+                                    ✏️
+                                </a>
+                                <a href="/admin/delete_whychoose_info/<%- row.whychoose_id %>" class="btn btn-sm btn-danger" onclick="return confirm('Are You Sure....?')">
+                                    ❌
+                                </a>
+                            </td>
+                            <td><%- i + 1 %></td>
+                            <td><%- row.title %></td>
+                            <td>
+                                <img src="/uploads/<%- row.icon%>" alt="Photo" class="img-thumbnail" width="100px" height="50px">
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="6" class="text-center text-muted">No records found</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
+
+
+<%-include("footer.ejs")%>

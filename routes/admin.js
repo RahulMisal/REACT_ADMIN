@@ -5,6 +5,11 @@ var router = express.Router();
 router.get("/",function(req,res){
     res.render("admin/home.ejs");
 });
+router.get("/sliderapi",async function(req,res){
+    var slider = await exe (`SELECT * FROM slider`);
+    var obj = {"slider":slider};
+    res.send(obj);
+});
 
 // about section start
 
